@@ -1,5 +1,5 @@
 
-export const sendToken = (user, statusCode, res) => {
+export const sendTokenHandler = (user, statusCode, res) => {
    //**************** create JWT Token ****************//
    const token = user.getJwtToken();
 
