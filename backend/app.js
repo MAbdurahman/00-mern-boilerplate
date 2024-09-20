@@ -6,7 +6,7 @@ import express from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import path from 'node:path';
-import HomePage from './homePage.js';
+
 
 /************************* setup config file *************************/
 if (process.env.NODE_ENV !== 'production') {
@@ -26,12 +26,11 @@ app.use(express.static('public'));
 app.use(helmet());
 
 /************************* import all routes *************************/
+import homeRoute from './routes/homeRoute.js'
 
 
 /************************* routes *************************/
-app.get('/api/v1.0/', (req, res) => {
-   res.send(HomePage());
-});
+app.get('/api/v1.0/', homeRoute);
 
 
 
