@@ -6,6 +6,8 @@ import express from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import HomePage from '../pages/homePage.js';
+import {authenticateMiddleware} from '../middlewares/authenticateMiddleware.js';
+import {loggerMiddleware} from '../middlewares/loggerMiddleware.js';
 
 /************************* setup config file *************************/
 if (process.env.NODE_ENV !== 'production') {
@@ -22,6 +24,8 @@ app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(cookieParser());
 app.use(helmet());
+app.use(authenticateMiddleware);
+app.use(loggerMiddleware);
 app.use(express.static('public'));
 
 /************************* import all routes *************************/
