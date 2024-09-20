@@ -5,8 +5,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
-import path from 'node:path';
-
+import HomePage from '../pages/homePage.js';
 
 /************************* setup config file *************************/
 if (process.env.NODE_ENV !== 'production') {
@@ -20,17 +19,19 @@ if (process.env.NODE_ENV === 'development') {
    app.use(morgan('dev'));
 }
 app.use(express.json()); // for parsing application/json
-app.use(cookieParser());
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-app.use(express.static('public'));
+app.use(cookieParser());
 app.use(helmet());
+app.use(express.static('public'));
 
 /************************* import all routes *************************/
-import homeRoute from './routes/homeRoute.js'
+
 
 
 /************************* routes *************************/
-app.get('/api/v1.0/', homeRoute);
+app.get('/api/v1.0/', (req, res)=> {
+   res.send(HomePage());
+});
 
 
 

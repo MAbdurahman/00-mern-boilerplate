@@ -1,7 +1,7 @@
 /************************* imports *************************/
 import dotenv from "dotenv";
 import colors from "colors";
-import app from './app.js';
+import app from './app/app.js';
 import connectDatabase from './config/databaseConfig.js';
 
 /************************* handling Uncaught exceptions *************************/
@@ -21,7 +21,7 @@ const NODE_ENV = process.env.NODE_ENV;
 const API_URL = process.env.API_ENV || "/api/v1.0/";
 
 /************************* connect database *************************/
-
+/*connectDatabase();*/
 /************************* app listening *************************/
 const server = app.listen(PORT, () => {
    console.log(`The server is listening at - http://127.0.0.1:${PORT}${API_URL} in ${NODE_ENV} mode!`.yellow);
