@@ -1,6 +1,6 @@
 # 00-mern-boilerplate
 
-`this repository is boilerplate to start mern project`
+`this repository is boilerplate to start mern projects`
 
 
 
