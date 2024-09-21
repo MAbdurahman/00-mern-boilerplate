@@ -5,7 +5,6 @@ import dotenv from 'dotenv';
 import express from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
-import HomePage from '../pages/homePage.js';
 import {authenticateMiddleware} from '../middlewares/authenticateMiddleware.js';
 import {loggerMiddleware} from '../middlewares/loggerMiddleware.js';
 
@@ -29,13 +28,11 @@ app.use(loggerMiddleware);
 app.use(express.static('public'));
 
 /************************* import all routes *************************/
+import homeRoute from '../routes/homeRoute.js';
 
 
-
-/************************* routes *************************/
-app.get('/api/v1.0/', (req, res)=> {
-   res.send(HomePage());
-});
+/****************************** routes ******************************/
+app.use('/api/v1.0/', homeRoute);
 
 
 
