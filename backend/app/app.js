@@ -35,6 +35,4 @@ import homeRoute from '../routes/homeRoute.js';
 app.use('/api/v1.0/', homeRoute);
 
 
-
-
 export default app;
